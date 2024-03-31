@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run migrations
-        run: ./migrate.sh
+        run: migrate -path db/migration -database "postgresql://postgres:postgres@localhost:5432/simple_bank?sslmode=disable" -verbose up 
       
       - name: Test
         run: go test -v ./...
